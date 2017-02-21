@@ -5,13 +5,22 @@
 
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 <script src="js/bootstrap.min.js"></script>
+<style>
+.ng-invalid.ng-dirty {
+border-color: #FA787E;
+}
+!
+.ng-valid.ng-dirty {
+border-color: #78FA89;
+}
 
+</style>
 </head>
 <body>	
 	<div ng-controller="StoreController as store" >	
 		
 
-			<div style="max-width:360px; margin-top:10px; margin:auto; padding:10px;">
+			<div style="max-width:600px; margin-top:10px; margin:auto; padding:10px;">
 				
 				<ul class="list-group">
 				
@@ -20,14 +29,14 @@
 						<h3>
 						{{product.name}}
 						
-							<em class="pull-right">{{product.price | currency}}</em>
+							<em class="pull-right">{{product.price | currency}}</em></h3>
 						
-							<span style="margin-left:20%; "><img ng-src="{{product.images[0].full}}"/>
+							<center><img ng-src="{{product.images[0].full}}"/>
 						
 								<img ng-src="{{product.images[2].full}}"/>
 						
-							</span>
-						</h3>
+							</center>
+						<br>
 						
 						<section ng-controller="PanelController as panel">
 							<div ng-model="thisTab">
@@ -41,7 +50,7 @@
 								
 								<li ng-class="{active:panel.isSelected(2) }"> 
 								
-									<a href ng-click="panel.selctTab(2)"> Specifications</a> 
+									<a href ng-click="panel.selectTab(2)"> Specification</a> 
 								
 								</li>
 								
@@ -63,7 +72,7 @@
 
 							<div class="panel" ng-show="panel.isSelected(2)">
 								
-								<h4>Specifications</h4>
+								<h4>Specification</h4>
 								
 								<blockquote>None yet</blockquote>
 
@@ -99,15 +108,15 @@
 							<label>by:</label>
 							<input placeholder="enter your email" type="email" ng-model="reviewCtrl.review.author" class="form-control" required/>
 							<br>
-							
+						
 							<input type="submit" value="Submit" class="btn btn-default" />
 							</div>
 							</form>
 							</div>
 				
-						</section>
+								</section>
 
-					</li>
+							</li>
 				</ul>
 
 	</div>
