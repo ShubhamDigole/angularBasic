@@ -15,8 +15,19 @@ images: [
 {full: 'img/gem-01.gif',
 
 }],
+reviews: [
+{
+stars: 5,
+body: "I love this product!",
+author: "joe@thomas.com"
+},
+{
+stars: 1,
+body: "This product sucks",
+author: "tim@hater.com"
+}
 
-
+]
 }
 
 ,{
@@ -35,7 +46,9 @@ full: 'img/gem-09gif',
 }
 ],
 
+reviews: [
 
+]
 } ];
 
 app.controller("PanelController", function(){
@@ -53,17 +66,16 @@ app.controller("PanelController", function(){
       
       };
 });
- 
- app.controller("ReviewController", function(){
+
+app.controller("ReviewController", function(){
 	
 	
 	this.review = {};
 	this.addReview = function(product){
 	product.reviews.push(this.review); 
-	
-	
 	};
 	
- 
+	
+});
 })();
 
