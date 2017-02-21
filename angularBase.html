@@ -73,8 +73,36 @@
 
 								<h4>Reviews</h4>
 								
-								<blockquote>None yet</blockquote>
-
+								<blockquote ng-repeat="review in product.reviews">
+								<b>Stars:</b> {{review.stars}}
+								{{review.body}}<br>
+								<cite>by: {{review.author}}</cite>
+								</blockquote>
+								<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+								<div class="form-group">
+								
+								<blockquote>
+								<b>Stars:</b> {{reviewCtrl.review.stars}}
+								{{reviewCtrl.review.body}}<br>
+								<cite>by: {{reviewCtrl.review.author}}</cite>
+								</blockquote>
+							<select ng-model="reviewCtrl.review.stars" required>
+							<option value="1">1 star</option>
+							<option value="2">2 stars</option>
+							<option value="3">3 stars</option>
+							<option value="4">4 stars</option>
+							<option value="5">5 stars</option>
+							</select>
+							<br>
+							<br>
+							<textarea ng-model="reviewCtrl.review.body" class="form-control" required></textarea>
+							<label>by:</label>
+							<input placeholder="enter your email" type="email" ng-model="reviewCtrl.review.author" class="form-control" required/>
+							<br>
+							
+							<input type="submit" value="Submit" class="btn btn-default" />
+							</div>
+							</form>
 							</div>
 				
 						</section>
